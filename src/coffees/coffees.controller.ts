@@ -32,7 +32,7 @@ export class CoffeesController {
     return this.coffeesService.create(createCoffeeDto);
   }
 
-  @Patch()
+  @Patch(':id')
   updateCoffee(
     @Param('id') id: string,
     @Body() updateCoffeeDto: UpdateCoffeeDto,
