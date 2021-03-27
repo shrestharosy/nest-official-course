@@ -1,3 +1,5 @@
+import { UpdateCoffeeDto } from './dto/update-coffee.dto';
+import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { CoffeesService } from './coffees.service';
 import {
   Body,
@@ -26,13 +28,16 @@ export class CoffeesController {
   }
 
   @Post()
-  addCoffee(@Body() body) {
-    return this.coffeesService.create(body);
+  addCoffee(@Body() createCoffeeDto: CreateCoffeeDto) {
+    return this.coffeesService.create(createCoffeeDto);
   }
 
   @Patch()
-  updateCoffee(@Param('id') id: string, @Body() body) {
-    return this.coffeesService.update(id, body);
+  updateCoffee(
+    @Param('id') id: string,
+    @Body() updateCoffeeDto: UpdateCoffeeDto,
+  ) {
+    return this.coffeesService.update(id, updateCoffeeDto);
   }
 
   @Delete(':id')
