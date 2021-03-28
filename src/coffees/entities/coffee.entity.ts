@@ -22,6 +22,7 @@ export class Coffee {
   @JoinTable()
   // first param : establish what the type for relation is ; returns reference to the related entity , here flavor entity
   // second param: define an arrow function that returns the related entity and specify what prop needs to be selected that is the inverse side of the relationship ; here, what is coffee inside of the flavor entity
-  @ManyToMany((type) => Flavor, (flavor) => flavor.coffees)
-  flavors: string[];
+  // third param cascade: flavors that belong to a newly created coffee (that is not yet in our db) will automatically be inserted
+  @ManyToMany((type) => Flavor, (flavor) => flavor.coffees, { cascade: true })
+  flavors: Flavor[];
 }
