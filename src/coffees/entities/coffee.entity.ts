@@ -25,4 +25,7 @@ export class Coffee {
   // third param cascade: flavors that belong to a newly created coffee (that is not yet in our db) will automatically be inserted
   @ManyToMany((type) => Flavor, (flavor) => flavor.coffees, { cascade: true })
   flavors: Flavor[];
+
+  @Column({ default: 0 })
+  recommendations: number;
 }
