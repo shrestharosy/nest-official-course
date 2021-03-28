@@ -7,7 +7,7 @@ import { Flavor } from './entities/flavor.entity';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
 import { Coffee } from './entities/coffee.entity';
-import { Event } from 'src/events/entities/event.entity';
+import { RecommendationEvent } from 'src/events/entities/event.entity';
 
 @Injectable()
 export class CoffeesService {
@@ -98,7 +98,7 @@ export class CoffeesService {
     try {
       coffee.recommendations++;
 
-      const recommendEvent = new Event();
+      const recommendEvent = new RecommendationEvent();
       recommendEvent.name = 'recommend_coffee';
       recommendEvent.type = 'coffee';
       recommendEvent.payload = { coffeeId: coffee.id };

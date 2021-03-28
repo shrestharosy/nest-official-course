@@ -1,4 +1,4 @@
-import { Column, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 
 // ===================================NOTES ==========================================
 // Indexes are special lookup tables that a db search engine can use to retrieve data fast
@@ -8,7 +8,8 @@ import { Column, Index, PrimaryGeneratedColumn } from 'typeorm';
 // apply index decorator to the class itself and pass array of column names
 
 // @Index(['name', 'type'])
-export class Event {
+@Entity()
+export class RecommendationEvent {
   @PrimaryGeneratedColumn()
   id: string;
 

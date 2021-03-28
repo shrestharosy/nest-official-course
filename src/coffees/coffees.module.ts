@@ -5,10 +5,12 @@ import { Coffee } from './entities/coffee.entity';
 import { Flavor } from './entities/flavor.entity';
 import { CoffeesService } from './coffees.service';
 import { CoffeesController } from './coffees.controller';
+import { RecommendationEvent } from 'src/events/entities/event.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Coffee, Flavor, Event])], //pass array of entities here
+  imports: [TypeOrmModule.forFeature([Coffee, Flavor, RecommendationEvent])], //pass array of entities here
   controllers: [CoffeesController],
   providers: [CoffeesService],
+  exports: [CoffeesService],
 })
 export class CoffeesModule {}
