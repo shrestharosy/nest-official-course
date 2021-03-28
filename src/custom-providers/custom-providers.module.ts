@@ -1,5 +1,6 @@
 import { Injectable, Module } from '@nestjs/common';
 import { COFFEE_BRANDS } from 'src/custom-providers/coffees.constants';
+import { Connection } from 'typeorm';
 import { CustomProvidersService } from './custom-providers.service';
 
 export class MockCoffeeService {}
@@ -33,6 +34,19 @@ export class CoffeeBrandsFactory {
       useFactory: (brandsFactory: CoffeeBrandsFactory) =>
         brandsFactory.create(),
       inject: [CoffeeBrandsFactory],
+    },
+    // Asynchronous "useFactory" (async provider example)
+    {
+      provide: 'COFFEE_BRANDS',
+      // Note "async" here, and Promise/Async event inside the Factory function
+      // Could be a database connection / API call / etc
+      // In our case we're just "mocking" this type of event with a Promise
+      useFactory: async (connection: Connection): Promise<string[]> => {
+        // const coffeeBrands = await connection.query('SELECT * ...');
+        const coffeeBrands = await Promise.resolve(['buddy brew', 'nescafe']);
+        return coffeeBrands;
+      },
+      inject: [Connection],
     },
   ],
 })
