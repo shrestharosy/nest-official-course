@@ -1,6 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Flavor } from './flavor.entity';
 @Entity() //sql table === 'coffee'
-// pass name in decorato if you want a different name @Entity('coffees')
+// pass name in decorator if you want a different name @Entity('coffees')
 export class Coffee {
   @PrimaryGeneratedColumn()
   id: number;
@@ -11,6 +18,10 @@ export class Coffee {
   @Column()
   brand: string;
 
-  @Column('json', { nullable: true })
+  // help specify the owner side of the relationship , here coffee entity
+  @JoinTable()
+  // first param : establish what the type for relation is ; returns reference to the related entity , here flavor entity
+  // second param: define an arrow function that returns the related entity and specify what prop needs to be selected that is the inverse side of the relationship ; here, what is coffee inside of the flavor entity
+  @ManyToMany((type) => Flavor, (flavor) => flavor.coffees)
   flavors: string[];
 }
