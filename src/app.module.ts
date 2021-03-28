@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
@@ -17,6 +18,9 @@ import { CustomProvidersModule } from './custom-providers/custom-providers.modul
       // validationSchema: Joi.object({
       //   DB_HOST: Joi.required().default('localhost'),
       // }),
+      // console.log(this.configService.get('database.host'));
+      // access database.host property of config object in config file
+      // load: [appConfig],
     }),
     CoffeesModule,
     TypeOrmModule.forRoot({
