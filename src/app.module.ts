@@ -9,7 +9,15 @@ import { CustomProvidersModule } from './custom-providers/custom-providers.modul
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      //can specify mutiple paths
+      // envFilePath: '.env.local',
+      // to ignore env file, for instance in production environment
+      // ignoreEnvFile: true,
+      // validationSchema: Joi.object({
+      //   DB_HOST: Joi.required().default('localhost'),
+      // }),
+    }),
     CoffeesModule,
     TypeOrmModule.forRoot({
       type: 'postgres', // type of our database
