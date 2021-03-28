@@ -6,7 +6,6 @@ import { Flavor } from './entities/flavor.entity';
 import { CoffeesService } from './coffees.service';
 import { CoffeesController } from './coffees.controller';
 import { RecommendationEvent } from 'src/events/entities/event.entity';
-import { CustomCoffeeService } from './customProvider/custom.coffee.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Coffee, Flavor, RecommendationEvent])], //pass array of entities here
