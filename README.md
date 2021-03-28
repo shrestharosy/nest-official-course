@@ -71,3 +71,7 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+How can we use our namespace'd configurations in a Type-safe manner?
+
+By using @Inject(someconfig.KEY) in comination with "ConfigType" to inject the entire object
