@@ -12,6 +12,7 @@ import { RecommendationEvent } from 'src/events/entities/event.entity';
   imports: [
     TypeOrmModule.forFeature([Coffee, Flavor, RecommendationEvent]),
     ConfigModule,
+    // ConfigModule.forFeature(coffeesConfig),
   ], //pass array of entities here
   controllers: [CoffeesController],
   providers: [CoffeesService],
