@@ -74,4 +74,10 @@ Nest is [MIT licensed](LICENSE).
 
 How can we use our namespace'd configurations in a Type-safe manner?
 
-By using @Inject(someconfig.KEY) in comination with "ConfigType" to inject the entire object
+By using @Inject(someconfig.KEY) in combination with "ConfigType" to inject the entire object
+
+Building blocks
+Exception Filters, Pipes, Guards, Interceptors
+
+Binding Techniques
+Global, Controller, Method and Param(only for pipes)
