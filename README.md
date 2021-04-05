@@ -81,3 +81,6 @@ Exception Filters, Pipes, Guards, Interceptors
 
 Binding Techniques
 Global, Controller, Method and Param(only for pipes)
+
+Guards
+Global guard that depends on other classes must be registered within a module context

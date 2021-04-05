@@ -17,7 +17,9 @@ async function bootstrap() {
     }),
   );
   app.useGlobalFilters(new HttpExceptionFilter());
-  app.useGlobalGuards(new ApiKeyGuard());
+
+  // this method is only available if our guard doesn't use dependency injection
+  // app.useGlobalGuards(new ApiKeyGuard());
   await app.listen(3000);
 }
 bootstrap();

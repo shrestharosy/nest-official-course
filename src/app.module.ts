@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { CoffeesModule } from './coffees/coffees.module';
 import { CoffeeRatingModule } from './coffee-rating/coffee-rating.module';
 import { CustomProvidersModule } from './custom-providers/custom-providers.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { CustomProvidersModule } from './custom-providers/custom-providers.modul
     }),
     CoffeeRatingModule,
     CustomProvidersModule,
+    CommonModule,
   ],
   controllers: [AppController],
   providers: [
