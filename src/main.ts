@@ -22,7 +22,10 @@ async function bootstrap() {
   // this method is only available if our guard doesn't use dependency injection
   // app.useGlobalGuards(new ApiKeyGuard());
 
-  app.useGlobalInterceptors(new WrapResponseInterceptor());
+  app.useGlobalInterceptors(
+    new WrapResponseInterceptor(),
+    new TimeoutInterceptor(),
+  );
   await app.listen(3000);
 }
 bootstrap();
